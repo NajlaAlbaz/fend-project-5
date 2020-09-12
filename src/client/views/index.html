@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Where to? | Travel App</title>
+    </head>
+    <body>
+        <div id="main">
+            <div id="form-layout">
+                <div class="title">
+                    <h1>Where are you going?</h1>
+                </div>
+                <div class="form-item">
+                    <label> From?<span class="pink">*</span> </label> <br>
+                        <select name="city" class="cities" id="fromCity" list="city" required>
+                            <option value="">Select City</option>
+                            <option value="Paris">Paris</option>
+                            <option value="London">London</option>
+                            <option value="Dubai">Dubai</option>
+                            <option value="New York">New York</option>
+                            <option value="Tokyo">Tokyo</option>
+                        </select>
+                </div>
+                <div class="form-item">
+                    <label> To?<span class="pink">*</span> </label> <br>
+                        <select name="city" class="cities" id="toCity" list="city" required>
+                            <option value="">Select City</option>
+                            <option value="Paris">Paris</option>
+                            <option value="London">London</option>
+                            <option value="Dubai">Dubai</option>
+                            <option value="New York">New York</option>
+                            <option value="Tokyo">Tokyo</option>
+                        </select>
+                </div>
+                <div class="form-item">
+                    <label> Depature date?<span class="pink">*</span> </label> <br>
+                        <input type="date" name="start-date" id="start-date" required>
+                </div>
+                <div class="form-item">
+                    <label> Return date?<span class="pink">*</span> </label> <br>
+                        <input type="date" name="end-date" id="end-date" required>
+                </div>
+                <div class="form-item">
+                    <button id="go-button" onclick="return Client.getTripInfo(event)">Go</button>
+                </div>
+            </div>
+            <div id="results-layout">
+                <div class="title">
+                    <h1>Travel Planner</h1>
+                </div>
+                <div id="no_trip">
+                    <p> <span class="pink_underlined">No trip entered yet...</span></p>
+                </div>
+                <div id="planner_box" class="hidden">
+                    <div id="img_box">
+                        <img id="city_img" src="" alt="City Image">
+                    </div>
+                    <div id="trip_info">
+                        <p class="bold pink_underline">Trip Information: </p>
+                        <p>From: <span id="from_info" class="pink_underline"></span></p> 
+                        <p>To: <span id="to_info" class="pink_underline"></span></p>
+                        <p>Departing: <span id="depart_info" class="pink_underline"></span></p>
+                        <p>Returning: <span id="return_info" class="pink_underline"></span></p> 
+                    </div>
+                    <div id="details">
+                        <p class="bold pink_underline">Trip details:</p>
+                        <p>Trip to <span id="to_trip" class="pink_underline"></span> <span class="pink_underline" id="days_away"></span></p>
+                        <p>Trip length is <span id="trip_length" class="pink_underline"></span> days.</p>
+                    </div>
+                    <div id="weather">
+                        <p class="bold pink_underline">Typical weather during trip: </p>
+                        <p>High temprature: <span id="high_temp" class="pink_underline"></span> celcius</p>
+                        <p>Low temprature: <span id="low_temp" class="pink_underline"></span> celcius</p>
+                        <p><span id="weather_description" class="pink_underline"></span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <p>Made by <a href="https://najlaalbaz.com/" target="_blank" rel="noopener">Najla Albaz</a> for the capstone project from the Udacity front end development nanodegree course</p>
+            </div>
+            <script>
+                // Check that service workers are supported
+                if ('serviceWorker' in navigator) {
+                    // Use the window load event to keep the page load performant
+                    window.addEventListener('load', () => {
+                        navigator.serviceWorker.register('./service-worker.js');
+                    });
+                }
+            </script>
+        </div>
+    </body>
+</html>
+

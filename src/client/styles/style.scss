@@ -1,0 +1,184 @@
+@import url("https://use.typekit.net/tpc0ivp.css");
+
+body {
+    background-color: #0B9ED9;
+    color: #021859;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    height: auto;
+    font-family: agenda, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+}
+
+a {
+    color: inherit;
+    &:hover, &:visited, &:link, &:active{
+        color: inherit;
+        text-decoration: inherit;
+    }
+
+}
+
+input, select{
+    background-color: hsl(199, 92%, 50%);
+    font-size: 24px;
+    font-family: agenda, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #021859;
+    margin-top: 0.2em;
+}
+
+button {
+    background-color: #F25CA2;
+    font-size: 24px;
+    font-family: agenda, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #021859;
+    padding: 0.1em 0.5em;
+}
+
+.form-item {
+    margin-top: 0.5em;
+}
+
+#main {
+    display: grid;
+    grid-template-rows: 15vh auto 10vh auto 10vh 10vh;
+    grid-template-columns: 10vw 80vw 10vw;
+    grid-template-areas:
+    ". . ."
+    ". form ."
+    ". . ."
+    ". planner ."
+    ". . ."
+    "footer footer footer";
+}
+
+.title{
+    font-style: bold;
+    font-weight: 700;
+    font-size: 54px;
+}
+
+#form-layout {
+    justify-self: center;
+    grid-area: form;
+}
+
+.footer {
+    justify-self: stretch;  
+    grid-area: footer;
+    font-size: 18px;
+    padding: 0 1em;
+    a{
+        border-bottom: #F25CA2 solid 2px;
+        &:hover {
+            border-bottom: #021859 solid 2px;
+        }
+    }
+}
+
+.pink {
+    color: #F25CA2;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#results-layout {
+    justify-self: stretch;
+    grid-area: planner;
+}
+
+#planner_box {
+    display: grid;
+    grid-template-rows: 1fr 0.5fr 0.5fr;
+    grid-template-columns: 40% 10% 50%;
+    grid-template-areas:
+    "img . info"
+    "img . details"
+    "img . weather"
+    ;
+}
+
+#img_box {
+    grid-area: img;
+    display: flex;
+    border: #F25CA2 solid 2px;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    align-self: center;
+}
+
+#city_img {
+    width: 100%;
+    margin: auto;
+    align-self: center;
+    overflow: hidden;
+
+    img {
+        display: block;
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        margin: auto; 
+    }
+}
+
+#trip_info {
+    grid-area: info;
+    margin-bottom: 1em;
+    p{
+        margin-bottom: 0.5em;
+    }
+}
+
+#details {
+    grid-area: details;
+    margin-bottom: 1em;
+    p{
+        margin-bottom: 0.5em;
+    }
+}
+
+#weather {
+    grid-area: weather;
+    p{
+        margin-bottom: 0.5em;
+    }
+}
+
+.pink_underline {
+    border-bottom: #F25CA2 solid 3px;
+}
+
+.bold {
+    font-style: bold;
+    font-weight: 700;
+}
+
+@media (max-width: 760px) {
+    #planner_box {
+        display: grid;
+        grid-template-rows: 40% 1em 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "img"
+        "."
+        "info"
+        "details"
+        "weather"
+        ;
+    }
+
+    #trip_info {
+        margin-bottom: 0;
+    }
+}
